@@ -1,0 +1,16 @@
+/mnt/c/Users/rafae/Downloads/Carros/src/main/java/com/automotive/simulator/application/services/SimulatorService.java
+/mnt/c/Users/rafae/Downloads/Carros/src/main/java/com/automotive/simulator/domain/exceptions/BusinessRuleException.java
+/mnt/c/Users/rafae/Downloads/Carros/src/main/java/com/automotive/simulator/domain/entities/SUVFlex.java
+/mnt/c/Users/rafae/Downloads/Carros/src/main/java/com/automotive/simulator/domain/entities/EconomyCar.java
+/mnt/c/Users/rafae/Downloads/Carros/src/main/java/com/automotive/simulator/domain/entities/VehicleRepository.java
+/mnt/c/Users/rafae/Downloads/Carros/src/main/java/com/automotive/simulator/domain/entities/ConsumptionStrategy.java
+/mnt/c/Users/rafae/Downloads/Carros/src/main/java/com/automotive/simulator/domain/entities/UtilityCar.java
+/mnt/c/Users/rafae/Downloads/Carros/src/main/java/com/automotive/simulator/domain/entities/SimpleConsumption.java
+/mnt/c/Users/rafae/Downloads/Carros/src/main/java/com/automotive/simulator/domain/entities/VehicleFactory.java
+/mnt/c/Users/rafae/Downloads/Carros/src/main/java/com/automotive/simulator/infrastructure/InMemoryVehicleRepository.java
+/mnt/c/Users/rafae/Downloads/Carros/src/main/java/com/automotive/simulator/domain/entities/FlexConsumption.java
+/mnt/c/Users/rafae/Downloads/Carros/src/main/java/com/automotive/simulator/presentation/Main.java
+/mnt/c/Users/rafae/Downloads/Carros/src/main/java/com/automotive/simulator/domain/entities/SUV.java
+/mnt/c/Users/rafae/Downloads/Carros/src/main/java/com/automotive/simulator/domain/entities/SportCar.java
+/mnt/c/Users/rafae/Downloads/Carros/src/main/java/com/automotive/simulator/domain/entities/FuelType.java
+/mnt/c/Users/rafae/Downloads/Carros/src/main/java/com/automotive/simulator/domain/entities/BaseCar.java

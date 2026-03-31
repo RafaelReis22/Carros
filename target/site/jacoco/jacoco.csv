@@ -1,0 +1,15 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+car-simulator,com.automotive.simulator.application.services,SimulatorService,21,30,0,0,7,7,2,4,2,4
+car-simulator,com.automotive.simulator.domain.entities,FuelType,28,25,4,0,5,6,4,2,2,2
+car-simulator,com.automotive.simulator.domain.entities,FlexConsumption,0,14,0,2,0,4,0,3,0,2
+car-simulator,com.automotive.simulator.domain.entities,SUV,6,0,0,0,2,0,1,0,1,0
+car-simulator,com.automotive.simulator.domain.entities,UtilityCar,6,0,0,0,2,0,1,0,1,0
+car-simulator,com.automotive.simulator.domain.entities,VehicleFactory,30,19,0,0,4,2,4,2,4,2
+car-simulator,com.automotive.simulator.domain.entities,BaseCar,133,35,5,1,20,10,8,4,5,4
+car-simulator,com.automotive.simulator.domain.entities,SportCar,0,6,0,0,0,2,0,1,0,1
+car-simulator,com.automotive.simulator.domain.entities,SUVFlex,0,6,0,0,0,2,0,1,0,1
+car-simulator,com.automotive.simulator.domain.entities,SimpleConsumption,3,6,0,0,1,1,1,1,1,1
+car-simulator,com.automotive.simulator.domain.entities,EconomyCar,6,0,0,0,2,0,1,0,1,0
+car-simulator,com.automotive.simulator.domain.exceptions,BusinessRuleException,0,4,0,0,0,2,0,1,0,1
+car-simulator,com.automotive.simulator.infrastructure,InMemoryVehicleRepository,34,0,0,0,8,0,5,0,5,0
+car-simulator,com.automotive.simulator.presentation,Main,204,0,16,0,69,0,23,0,11,0

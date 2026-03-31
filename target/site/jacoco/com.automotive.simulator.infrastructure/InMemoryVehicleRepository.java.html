@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>InMemoryVehicleRepository.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">car-simulator</a> &gt; <a href="index.source.html" class="el_package">com.automotive.simulator.infrastructure</a> &gt; <span class="el_source">InMemoryVehicleRepository.java</span></div><h1>InMemoryVehicleRepository.java</h1><pre class="source lang-java linenums">package com.automotive.simulator.infrastructure;
+
+import com.automotive.simulator.domain.entities.BaseCar;
+import com.automotive.simulator.domain.entities.VehicleRepository;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+/**
+ * Implementação em memória do repositório de veículos.
+ * Parte da camada de infraestrutura.
+ */
+<span class="nc" id="L14">public class InMemoryVehicleRepository implements VehicleRepository {</span>
+<span class="nc" id="L15">    private final List&lt;BaseCar&gt; storage = new ArrayList&lt;&gt;();</span>
+
+    @Override
+    public void save(BaseCar car) {
+<span class="nc" id="L19">        storage.add(car);</span>
+<span class="nc" id="L20">    }</span>
+
+    @Override
+    public List&lt;BaseCar&gt; findAll() {
+<span class="nc" id="L24">        return new ArrayList&lt;&gt;(storage);</span>
+    }
+
+    @Override
+    public Optional&lt;BaseCar&gt; findById(String name) {
+<span class="nc" id="L29">        return storage.stream()</span>
+<span class="nc" id="L30">                .filter(c -&gt; c.getClass().getSimpleName().equalsIgnoreCase(name))</span>
+<span class="nc" id="L31">                .findFirst();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

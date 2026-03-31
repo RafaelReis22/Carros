@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Main.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">car-simulator</a> &gt; <a href="index.source.html" class="el_package">com.automotive.simulator.presentation</a> &gt; <span class="el_source">Main.java</span></div><h1>Main.java</h1><pre class="source lang-java linenums">package com.automotive.simulator.presentation;
+
+import com.automotive.simulator.domain.entities.*;
+import com.automotive.simulator.infrastructure.InMemoryVehicleRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.Scanner;
+
+/**
+ * Ponto de entrada da aplicação.
+ * Fornece um menu interativo para o usuário.
+ */
+<span class="nc" id="L14">public class Main {</span>
+<span class="nc" id="L15">    private static final Logger logger = LoggerFactory.getLogger(Main.class);</span>
+<span class="nc" id="L16">    private static final VehicleRepository repository = new InMemoryVehicleRepository();</span>
+<span class="nc" id="L17">    private static final Scanner scanner = new Scanner(System.in);</span>
+
+    public static void main(String[] args) {
+<span class="nc" id="L20">        logger.info(&quot;Iniciando Simulador Automotivo Especialista+...&quot;);</span>
+<span class="nc" id="L21">        boolean running = true;</span>
+
+<span class="nc bnc" id="L23" title="All 2 branches missed.">        while (running) {</span>
+<span class="nc" id="L24">            printMenu();</span>
+<span class="nc" id="L25">            String choice = scanner.nextLine();</span>
+
+<span class="nc bnc" id="L27" title="All 6 branches missed.">            switch (choice) {</span>
+<span class="nc" id="L28">                case &quot;1&quot; -&gt; addCar();</span>
+<span class="nc" id="L29">                case &quot;2&quot; -&gt; listCars();</span>
+<span class="nc" id="L30">                case &quot;3&quot; -&gt; fuelCar();</span>
+<span class="nc" id="L31">                case &quot;4&quot; -&gt; runSimulation();</span>
+<span class="nc" id="L32">                case &quot;0&quot; -&gt; running = false;</span>
+<span class="nc" id="L33">                default -&gt; System.out.println(&quot;Opção inválida.&quot;);</span>
+            }
+<span class="nc" id="L35">        }</span>
+<span class="nc" id="L36">        logger.info(&quot;Saindo do Simulador. Dirija com segurança!&quot;);</span>
+<span class="nc" id="L37">    }</span>
+
+    private static void printMenu() {
+<span class="nc" id="L40">        System.out.println(&quot;\n--- SIMULADOR DE CARROS ESPECIALISTA+ ---&quot;);</span>
+<span class="nc" id="L41">        System.out.println(&quot;1. Adicionar Veículo (Padrão Factory)&quot;);</span>
+<span class="nc" id="L42">        System.out.println(&quot;2. Listar Frota (Padrão Repository)&quot;);</span>
+<span class="nc" id="L43">        System.out.println(&quot;3. Abastecer Veículo&quot;);</span>
+<span class="nc" id="L44">        System.out.println(&quot;4. Rodar Simulação (Padrão Strategy)&quot;);</span>
+<span class="nc" id="L45">        System.out.println(&quot;0. Sair&quot;);</span>
+<span class="nc" id="L46">        System.out.print(&quot;Escolha uma opção: &quot;);</span>
+<span class="nc" id="L47">    }</span>
+
+    private static void addCar() {
+<span class="nc" id="L50">        System.out.println(&quot;Selecione o tipo: 1.Esportivo 2.Utilitário 3.SUV 4.SUVFlex 5.Econômico&quot;);</span>
+<span class="nc" id="L51">        String type = scanner.nextLine();</span>
+<span class="nc bnc" id="L52" title="All 6 branches missed.">        BaseCar car = switch (type) {</span>
+<span class="nc" id="L53">            case &quot;1&quot; -&gt; VehicleFactory.createSport();</span>
+<span class="nc" id="L54">            case &quot;2&quot; -&gt; VehicleFactory.createUtility();</span>
+<span class="nc" id="L55">            case &quot;3&quot; -&gt; VehicleFactory.createSUV();</span>
+<span class="nc" id="L56">            case &quot;4&quot; -&gt; VehicleFactory.createSUVFlex(FuelType.ETHANOL);</span>
+<span class="nc" id="L57">            case &quot;5&quot; -&gt; VehicleFactory.createEconomy();</span>
+<span class="nc" id="L58">            default -&gt; null;</span>
+        };
+<span class="nc bnc" id="L60" title="All 2 branches missed.">        if (car != null) {</span>
+<span class="nc" id="L61">            repository.save(car);</span>
+<span class="nc" id="L62">            System.out.println(&quot;Veículo adicionado com sucesso!&quot;);</span>
+        } else {
+<span class="nc" id="L64">            System.out.println(&quot;Tipo inválido.&quot;);</span>
+        }
+<span class="nc" id="L66">    }</span>
+
+    private static void listCars() {
+<span class="nc" id="L69">        System.out.println(&quot;\n=== Listagem de Frota ===&quot;);</span>
+<span class="nc" id="L70">        repository.findAll().forEach(System.out::println);</span>
+<span class="nc" id="L71">    }</span>
+
+    private static void fuelCar() {
+<span class="nc" id="L74">        System.out.print(&quot;Digite o nome da classe do carro: &quot;);</span>
+<span class="nc" id="L75">        String name = scanner.nextLine();</span>
+<span class="nc" id="L76">        repository.findById(name).ifPresentOrElse(car -&gt; {</span>
+<span class="nc" id="L77">            System.out.print(&quot;Quantidade para abastecer: &quot;);</span>
+            try {
+<span class="nc" id="L79">                double amount = Double.parseDouble(scanner.nextLine());</span>
+<span class="nc" id="L80">                car.fuel(amount);</span>
+<span class="nc" id="L81">                System.out.println(&quot;Abastecido com sucesso!&quot;);</span>
+<span class="nc" id="L82">            } catch (Exception e) {</span>
+<span class="nc" id="L83">                System.out.println(&quot;Erro: &quot; + e.getMessage());</span>
+<span class="nc" id="L84">            }</span>
+<span class="nc" id="L85">        }, () -&gt; System.out.println(&quot;Veículo não encontrado.&quot;));</span>
+<span class="nc" id="L86">    }</span>
+
+    private static void runSimulation() {
+<span class="nc" id="L89">        System.out.print(&quot;Distância para rodar (km): &quot;);</span>
+        try {
+<span class="nc" id="L91">            double dist = Double.parseDouble(scanner.nextLine());</span>
+<span class="nc" id="L92">            repository.findAll().forEach(car -&gt; {</span>
+                try {
+<span class="nc" id="L94">                    car.run(dist);</span>
+<span class="nc" id="L95">                    System.out.println(car.getClass().getSimpleName() + &quot; rodou com sucesso.&quot;);</span>
+<span class="nc" id="L96">                } catch (Exception e) {</span>
+<span class="nc" id="L97">                    System.out.println(car.getClass().getSimpleName() + &quot; falhou: &quot; + e.getMessage());</span>
+<span class="nc" id="L98">                }</span>
+<span class="nc" id="L99">            });</span>
+<span class="nc" id="L100">        } catch (Exception e) {</span>
+<span class="nc" id="L101">            System.out.println(&quot;Valor inválido.&quot;);</span>
+<span class="nc" id="L102">        }</span>
+<span class="nc" id="L103">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

@@ -1,0 +1,16 @@
+com/automotive/simulator/domain/entities/BaseCar.class
+com/automotive/simulator/presentation/Main.class
+com/automotive/simulator/domain/entities/SimpleConsumption.class
+com/automotive/simulator/domain/entities/SportCar.class
+com/automotive/simulator/domain/entities/UtilityCar.class
+com/automotive/simulator/infrastructure/InMemoryVehicleRepository.class
+com/automotive/simulator/domain/entities/FlexConsumption.class
+com/automotive/simulator/domain/exceptions/BusinessRuleException.class
+com/automotive/simulator/domain/entities/EconomyCar.class
+com/automotive/simulator/domain/entities/VehicleFactory.class
+com/automotive/simulator/domain/entities/SUV.class
+com/automotive/simulator/domain/entities/VehicleRepository.class
+com/automotive/simulator/domain/entities/ConsumptionStrategy.class
+com/automotive/simulator/application/services/SimulatorService.class
+com/automotive/simulator/domain/entities/FuelType.class
+com/automotive/simulator/domain/entities/SUVFlex.class
